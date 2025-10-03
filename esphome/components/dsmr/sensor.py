@@ -28,6 +28,12 @@ AUTO_LOAD = ["dsmr"]
 CONFIG_SCHEMA = cv.Schema(
     {
         cv.GenerateID(CONF_DSMR_ID): cv.use_id(Dsmr),
+        cv.Optional("energy_delivered_oiken"): sensor.sensor_schema(
+            unit_of_measurement=UNIT_KILOWATT_HOURS,
+            accuracy_decimals=3,
+            device_class=DEVICE_CLASS_ENERGY,
+            state_class=STATE_CLASS_TOTAL_INCREASING,
+        ),
         cv.Optional("energy_delivered_lux"): sensor.sensor_schema(
             unit_of_measurement=UNIT_KILOWATT_HOURS,
             accuracy_decimals=3,
@@ -41,6 +47,12 @@ CONFIG_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_TOTAL_INCREASING,
         ),
         cv.Optional("energy_delivered_tariff2"): sensor.sensor_schema(
+            unit_of_measurement=UNIT_KILOWATT_HOURS,
+            accuracy_decimals=3,
+            device_class=DEVICE_CLASS_ENERGY,
+            state_class=STATE_CLASS_TOTAL_INCREASING,
+        ),
+        cv.Optional("energy_returned_oiken"): sensor.sensor_schema(
             unit_of_measurement=UNIT_KILOWATT_HOURS,
             accuracy_decimals=3,
             device_class=DEVICE_CLASS_ENERGY,
